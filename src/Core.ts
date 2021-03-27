@@ -299,13 +299,11 @@ const typeCheckExamples = (modules: ReadonlyArray<Module>): Program<void> =>
     getExampleFiles(modules),
     RTE.chain(handleImports),
     RTE.chain((examples) =>
-      examples.length === 0
-        ? cleanExamples
-        : pipe(
-            writeExamples(examples),
-            RTE.chain(() => spawnTsNode),
-            RTE.chain(() => cleanExamples)
-          )
+      pipe(
+        cleanExamples,
+        RTE.chain(() => writeExamples(examples)),
+        RTE.chain(() => spawnTsNode)
+      )
     )
   )
 
