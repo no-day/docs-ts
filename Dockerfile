@@ -3,13 +3,12 @@ FROM ruby:2.7-alpine
 RUN apk add --no-cache build-base gcc bash cmake git
 
 RUN gem install bundler -v "~>1.0" && gem install bundler jekyll
+RUN gem install github-pages 
 
 WORKDIR /site
 
-RUN gem install github-pages 
-
 RUN echo 'source "https://rubygems.org"' >> /site/Gemfile
-RUN echo 'gem "github-pages", "~> 213", :group => :jekyll_plugins' >> /site/Gemfile
+RUN echo 'gem "github-pages", "~> 214", :group => :jekyll_plugins' >> /site/Gemfile
 
 ARG PORT
 
