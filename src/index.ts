@@ -53,7 +53,8 @@ const capabilities: Core.Capabilities = {
   logger: Logger,
   ast: {
     project: new ast.Project({
-      compilerOptions
+      compilerOptions,
+      tsConfigFilePath: './tsconfig.json'
     }),
     addFile: Parser.addFileToProject
   }
