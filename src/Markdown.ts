@@ -562,7 +562,7 @@ const prettierOptions: prettier.Options = {
   parser: 'markdown',
   semi: false,
   singleQuote: true,
-  printWidth: 120
+  printWidth: 80
 }
 
 const prettify: Endomorphism<string> = (s) => prettier.format(s, prettierOptions)
